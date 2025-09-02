@@ -1,0 +1,40 @@
+# templates/reservations/history.html
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">My Reservations</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Future Reservations -->
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">Upcoming Stays</h2>
+            <div id="future-reservations"
+                 hx-get="{% url 'future_reservations' %}"
+                 hx-trigger="load"
+                 hx-swap="innerHTML">
+                <div class="animate-pulse">
+                    <div class="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+                    <div class="h-4 bg-gray-200 rounded w-1/2 mb-4"></div>
+                    <div class="h-4 bg-gray-200 rounded w-2/3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Past Reservations -->
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">Past Stays</h2>
+            <div id="past-reservations"
+                 hx-get="{% url 'past_reservations' %}"
+                 hx-trigger="load"
+                 hx-swap="innerHTML">
+                <div class="animate-pulse">
+                    <div class="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+                    <div class="h-4 bg-gray-200 rounded w-1/2 mb-4"></div>
+                    <div class="h-4 bg-gray-200 rounded w-2/3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

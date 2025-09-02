@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservation Lookup{% endblock %}
+
+{% block content %}
+<main class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Reservation Lookup</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            {% if results %}
+                <h2 class="mt-4">Results:</h2>
+                <ul>
+                    {% for reservation in results %}
+                        <li>{{ reservation }}</li>
+                    {% empty %}
+                        <li>No reservations found.</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</main>
+{% endblock %}

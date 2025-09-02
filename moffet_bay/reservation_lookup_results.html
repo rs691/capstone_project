@@ -1,0 +1,28 @@
+<!-- reservation_lookup_results.html -->
+
+{% if results %}
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>Reservation ID</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in results %}
+                <tr>
+                    <td>{{ reservation.reservation_id }}</td>
+                    <td>{{ reservation.last_name }}</td>
+                    <td>{{ reservation.email }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% elif results is not None %}
+    
+    <div class="alert alert-warning mt-4 text-center ">
+        <h4>No reservations found matching your search criteria.</h4>
+       
+    </div>
+{% endif %}

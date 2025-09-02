@@ -1,0 +1,110 @@
+{% extends "base.html" %} 
+{% block title %}Home{% endblock %} 
+
+{% block content %}
+<style>
+   footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+{% load static %}
+<body>
+  <div class="container mt-5">
+      <div class="justify-content-between align-items-center mb-4">
+        <h2>Reservation Lookup</h2>
+        
+   
+        
+   
+        </div>
+ 
+    </div>
+
+
+
+     <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header border-bottom-0">
+              
+
+
+
+                </div>
+                <div class="modal-body">
+ 
+   <form hx-post="{% url 'reservation_lookup' %}"
+              hx-trigger="change delay:500ms, keyup delay:500ms"
+              hx-target="#results"
+              hx-indicator="#spinner">
+            {% csrf_token %}
+            <div class="mb-3">
+            
+                {{ form.reservation_id }}
+            </div>
+            <div class="mb-3">
+            
+                {{ form.last_name }}
+            </div>
+            <div class="mb-3">
+              
+                {{ form.email }}
+            </div>
+        </form>
+    </div>   
+       
+        <script>
+        // Debug HTMX loading
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('htmx-status').textContent = 
+                typeof htmx !== 'undefined' ? 'Loaded' : 'Not loaded';
+        });
+        
+        // Debug HTMX requests
+        document.body.addEventListener('htmx:beforeRequest', function(evt) {
+            console.log('HTMX request starting:', evt.detail);
+        });
+        
+        document.body.addEventListener('htmx:afterRequest', function(evt) {
+            console.log('HTMX request completed:', evt.detail);
+        });
+    </script>   
+</div>
+
+</div>
+
+</div>
+</div>
+  <div class="container mt-5">
+      <div class="justify-content-between align-items-center mb-4">
+    
+        
+   
+          <div class="justify-content-between align-items-center mb-4">
+       <div id="spinner" class="htmx-indicator">
+            Searching...
+        </div>
+        
+        <div id="results">
+            {% include 'reservation_lookup_results.html' %}
+        </div>
+        </div>
+   
+        </div>
+ 
+    </div>
+  <div class="justify-content-between align-items-center mb-4">
+       <div id="spinner" class="htmx-indicator">
+            Searching...
+        </div>
+        
+        <div id="results">
+            {% include 'reservation_lookup_results.html' %}
+        </div>
+        </div>
+        </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Main container for the attractions section -->
+<div class="container mt-5">
+    <h1 class="text-center">Moffat Bay Attractions</h1>
+
+    <div class="row">
+        {% for attraction in attractions %}
+        <div class="col-md-4 d-flex align-items-stretch">
+            <div class="card mb-4 h-100 attraction-card">
+                <img src="/static/images/resort1.jpg" class="card-img-top attraction-img" alt="{{ attraction.title }}">
+                <!-- <img src="{{ attraction.image_url }}" class="card-img-top attraction-img" alt="{{ attraction.title }}"> -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ attraction.title }}</h5>
+                    <p class="card-text">{{ attraction.description }}</p>
+                    <p class="card-text"><strong>Price:</strong> {{ attraction.price }}</p>
+                    <p class="card-text"><strong>Duration:</strong> {{ attraction.duration }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block styles %}
+<!-- <style>
+  .attraction-img {
+    width: 100%;
+    height: 275px;
+    object-fit: cover;
+  }
+  .attraction-card {
+    min-height: 500px; /* Set a fixed minimum height for all cards */
+    display: flex;
+    flex-direction: column;
+  }
+  .attraction-card .card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+     min-height: 500px; /* Set a fixed minimum height for all cards */
+    display: flex;
+  }
+</style> -->
+{% endblock %}

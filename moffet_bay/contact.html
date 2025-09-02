@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+<style>
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+<div class="container mt-5">
+    <div class="card p-4 shadow-sm">
+        <h2 class="mb-3">Contact Us</h2>
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_name" class="form-label">Name</label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                    <div class="text-danger">{{ form.name.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <label for="id_email" class="form-label">Email address</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="text-danger">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <label for="id_message" class="form-label">Message</label>
+                {{ form.message }}
+                {% if form.message.errors %}
+                    <div class="text-danger">{{ form.message.errors }}</div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

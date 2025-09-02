@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'Moffet_bay/css/style.css' %}">
+
+{% block content %}
+<style>
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Reservation Summary</h2>
+
+        <h4>Past Reservations</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Reservation Date</th>
+                    <th>Room Type</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Guests</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in past_reservations %}
+                <tr>
+                    <td>{{ reservation.reservation_date }}</td>
+                    <td>{{ reservation.get_room_type_display }}</td>
+                    <td>{{ reservation.check_in }}</td>
+                    <td>{{ reservation.check_out }}</td>
+                    <td>{{ reservation.guests }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No past reservations found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Button to trigger modal -->
+        <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#upcomingModal">
+            View Upcoming Reservations
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="upcomingModal" tabindex="-1" aria-labelledby="upcomingModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="upcomingModalLabel">Upcoming Reservations</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Reservation Date</th>
+                                    <th>Room Type</th>
+                                    <th>Check-in</th>
+                                    <th>Check-out</th>
+                                    <th>Guests</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for reservation in upcoming_reservations %}
+                                <tr>
+                                    <td>{{ reservation.reservation_date }}</td>
+                                    <td>{{ reservation.get_room_type_display }}</td>
+                                    <td>{{ reservation.check_in }}</td>
+                                    <td>{{ reservation.check_out }}</td>
+                                    <td>{{ reservation.guests }}</td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5">No upcoming reservations found.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock %}

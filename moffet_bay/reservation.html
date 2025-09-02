@@ -1,0 +1,84 @@
+
+
+
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    .modal-sheet {
+       
+    }
+</style>
+<!-- Modal -->
+<div class="modal modal-sheet position-relative d-block bg-body-secondary p-4 py-8 py-md-5" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header border-bottom-0">
+                <h2 class="modal-title" id="reservationModalLabel">Book your room</h2>
+            
+            </div>
+            <div class="modal-body ">
+                <form method="POST" action="{% url 'reservation' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            {{ form.first_name.label_tag }}
+                            {{ form.first_name }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            {{ form.last_name.label_tag }}
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.street.label_tag }}
+                        {{ form.street }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            {{ form.city.label_tag }}
+                            {{ form.city }}
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            {{ form.state.label_tag }}
+                            {{ form.state }}
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            {{ form.zip.label_tag }}
+                            {{ form.zip }}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.guests.label_tag }}
+                        {{ form.guests }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.room_type.label_tag }}
+                        {{ form.room_type }}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            {{ form.check_in.label_tag }}
+                            {{ form.check_in }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            {{ form.check_out.label_tag }}
+                            {{ form.check_out }}
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Reserve</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,281 @@
+{% extends "base.html" %}
+{% block title %}Moffat Bay Resort Documentation{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <!-- Sidebar Navigation -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+            <div class="position-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link active" href="#introduction">Introduction</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#getting-started">Getting Started</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#setup-deployment">Setup and Deployment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#registration">Registration</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#account-management">Account Management</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reservation">Making a Reservation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reservation-search">Reservation Search</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#payment">Payment Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Information</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+        </nav>
+
+   
+
+
+
+
+        <!-- Main Content -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Moffat Bay Resort Documentation</h1>
+            </div>
+
+
+            
+
+            <!-- Introduction Section -->
+            <section id="introduction" class="mb-5">
+                <h2>Introduction</h2>
+                <p>Welcome to the Moffat Bay Resort documentation. This guide will walk you through our online reservation system, providing instructions on registration, booking, and managing your reservations.</p>
+            </section>
+
+            <!-- Getting Started -->
+            <section id="getting-started" class="mb-5">
+                <h2>Getting Started</h2>
+                <p>Explore our resort offerings on the <a href="{% url 'index' %}">home page</a>. Learn more about our services on the <a href="{% url 'about' %}">about page</a>.</p>
+            </section>
+
+
+               <!--Setup and deployment-->
+<section id="setup-deployment" class="mb-5">
+    <div class="container">
+        <h1 class="mb-4">Setup and Deployment Guide</h1>
+
+        <section>
+            <h2>Overview</h2>
+            <p>The Moffat Bay Resort application is a web-based platform built with Django, designed to manage reservations, user accounts, and provide information about the resort.</p>
+        </section>
+
+        <section>
+            <h2>Technologies Used</h2>
+            <ul>
+                <li>Django 5.1.2</li>
+                <li>MySQL</li>
+                <li>HTMX</li>
+                <li>Bootstrap 5</li>
+                <li>Python 3.9+</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <ul>
+                <li>Python 3.9 or higher</li>
+                <li>MySQL Server</li>
+                <li>Git</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Quick Start Guide</h2>
+            <ol>
+                <li>
+                    <strong>Clone the repository:</strong>
+                    <pre><code>git clone https://github.com/yourusername/moffat-bay.git
+cd moffat-bay</code></pre>
+                </li>
+                <li>
+                    <strong>Create and activate a virtual environment:</strong>
+                    <pre><code># Windows
+python -m venv venv
+.\venv\Scripts\activate
+
+# Unix/Linux
+python3 -m venv venv
+source venv/bin/activate</code></pre>
+                </li>
+                <li>
+                    <strong>Install required packages:</strong>
+                    <pre><code>pip install -r requirements.txt</code></pre>
+                </li>
+                <li>
+                    <strong>Configure your database:</strong>
+                    <ul>
+                        <li>Create a MySQL database.</li>
+                        <li>Update the <code>.env</code> file with your database credentials.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Run migrations:</strong>
+                    <pre><code>python manage.py makemigrations
+python manage.py migrate</code></pre>
+                </li>
+                <li>
+                    <strong>Create a superuser:</strong>
+                    <pre><code>python manage.py createsuperuser</code></pre>
+                </li>
+                <li>
+                    <strong>Start the development server:</strong>
+                    <pre><code>python manage.py runserver</code></pre>
+                    <p>Visit <a href="http://localhost:8000" target="_blank" rel="noopener">http://localhost:8000</a> in your browser.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li>User Registration and Authentication</li>
+                <li>Reservation Management
+                    <ul>
+                        <li>Create new reservations</li>
+                        <li>View existing reservations</li>
+                        <li>Live search functionality</li>
+                    </ul>
+                </li>
+                <li>User Profile Management</li>
+                <li>Contact Form</li>
+                <li>Testimonials</li>
+                <li>Responsive Design</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Project Structure</h2>
+            <pre><code>moffat-bay/
+├── csd_Capstone/          # Project settings
+├── Moffet_bay/            # Main application
+├── static/                # Static files (CSS, JS, images)
+├── templates/             # HTML templates
+├── requirements.txt       # Project dependencies
+└── manage.py              # Django management script</code></pre>
+        </section>
+
+            <!-- Registration -->
+            <section id="registration" class="mb-5">
+                <h2>Registration</h2>
+                <p>Create an account to access exclusive deals and make reservations:</p>
+                <ol>
+                    <li>Go to the <a href="{% url 'sign_up' %}">Sign Up</a> page.</li>
+                    <li>Fill in your personal and contact details.</li>
+                    <li>Submit the form to create your account.</li>
+                </ol>
+            </section>
+
+            <!-- Login -->
+            <section id="login" class="mb-5">
+                <h2>Login</h2>
+                <p>Log in to manage your reservations:</p>
+                <ol>
+                    <li>Visit the <a href="{% url 'sign_in' %}">Sign In</a> page.</li>
+                    <li>Enter your email and password.</li>
+                    <li>Click the login button to proceed.</li>
+                </ol>
+            </section>
+
+            <!-- Account Management -->
+            <section id="account-management" class="mb-5">
+                <h2>Account Management</h2>
+                <p>Manage your account settings and preferences:</p>
+                <ul>
+                    <li>Update personal details in <a href="{% url 'profile' %}">Profile Settings</a>.</li>
+                    <li>Reset your password via the <a href="{% url 'password_reset' %}">Password Reset</a> page.</li>
+                    <li>View past reservations in your <a href="{% url 'index' %}">Dashboard</a>.</li>
+                </ul>
+            </section>
+
+            <!-- Making a Reservation -->
+            <section id="reservation" class="mb-5">
+                <h2>Making a Reservation</h2>
+                <ol>
+                    <li>Log in to your account.</li>
+                    <li>Go to the <a href="{% url 'reservation' %}">Reserve a Room</a> page.</li>
+                    <li>Select your desired room type and dates.</li>
+                    <li>Confirm the details and submit your reservation.</li>
+                </ol>
+            </section>
+
+            <!-- Reservation Search -->
+            <section id="reservation-search" class="mb-5">
+                <h2>Searching for a Reservation</h2>
+                <p>After logging in, you can search for your reservations by:</p>
+                <ul>
+                    <li>Reservation Number</li>
+                    <li>Last Name</li>
+                    <li>Email Address</li>
+                </ul>
+            </section>
+
+            <!-- Payment Process -->
+            <section id="payment" class="mb-5">
+                <h2>Payment Process</h2>
+                <p>Securely complete your reservation payment:</p>
+                <ol>
+                    
+                    <li>Enter your billing details.</li>
+                    <li>Choose a payment method (Credit/Debit Card, PayPal, etc.).</li>
+                    <li>Confirm the transaction and receive a booking confirmation.</li>
+                </ol>
+            </section>
+
+            <!-- Contact Information -->
+            <section id="contact" class="mb-5">
+                <h2>Contact Information</h2>
+                <p>If you need assistance, visit our <a href="{% url 'contact' %}">contact page</a> or reach out via:</p>
+                <ul>
+                    <li>Email: support@moffatbayresort.com</li>
+                    <li>Phone: +1 (555) 123-4567</li>
+                </ul>
+            </section>
+
+            <!-- FAQs -->
+            <section id="faq" class="mb-5">
+                <h2>Frequently Asked Questions</h2>
+                <div>
+                    <h4>How do I modify or cancel my reservation?</h4>
+                    <p>Log in to your account, go to the <a href="{% url 'index' %}">Dashboard</a>, and select the reservation you wish to modify or cancel.</p>
+                </div>
+                <div>
+                    <h4>What payment methods are accepted?</h4>
+                    <p>We accept all major credit cards, PayPal, and resort gift vouchers.</p>
+                </div>
+                <div>
+                    <h4>What is the cancellation policy?</h4>
+                    <p>Cancellations made within 48 hours of booking are fully refundable. After that, cancellation fees may apply.</p>
+                </div>
+            </section>
+                  <!-- Contributed By Section -->
+            <section id="contributions" class="mt-5 pb-5">
+                    <h4>Contributed By</h4>
+                    <p >
+                        Robert Stewart, Juan Partida-Jacinto, Brittni Ray, Aaron Crose II, and Prof Sue Sampson
+                    </p>
+                </section>
+
+                       <!-- FAQs -->
+            <section id="faq" class="mb-5">
+                <h2>Frequently Asked Questions</h2>
+                <div>
+                    <h4>How do I modify or cancel my reservation?</h4>
+                    <p>Log in to your account, go to the <a href="{% url 'index' %}">Dashboard</a>, and select the reservation you wish to modify or cancel.</p>
+                </div>
+                <div>
+                    <h4>What payment methods are accepted?</h4>
+                    <p>We accept all major credit cards, PayPal, and resort gift vouchers.</p>
+                </div>
+                <div>
+                    <h4>What is the cancellation policy?</h4>
+                    <p>Cancellations made within 48 hours of booking are fully refundable. After that, cancellation fees may apply.</p>
+                </div>
+            </section>
+                    
+                        
+                   
+        </main>
+    </div>
+</div>
+{% endblock %}

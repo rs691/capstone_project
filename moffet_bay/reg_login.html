@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moffat Bay - Registration & Login</title>
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card p-4 shadow-sm">
+            <h2 class="mb-3">Register</h2>
+            <form id="registration-form" method="POST" action="{% url 'register' %}" hx-post="{% url 'check_user' %}" hx-trigger="keyup changed delay:500ms" hx-target="#user-exists">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" name="address_line1" class="form-control" placeholder="Address Line 1" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="address_line2" class="form-control" placeholder="Address Line 2">
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="city" class="form-control" placeholder="City" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="state" class="form-control" placeholder="State" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="postal_code" class="form-control" placeholder="Postal Code" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="country" class="form-control" placeholder="Country" required>
+                </div>
+                <div class="mb-3">
+                    <label for="preferred_contact_method">Preferred Contact Method</label>
+                    <select id="preferred_contact_method" name="preferred_contact_method" class="form-select">
+                        <option value="email">Email</option>
+                        <option value="phone">Phone</option>
+                    </label>
+                </div>
+                <div id="user-exists" class="alert alert-danger d-none">User already exists!</div>
+                <button type="submit" class="btn btn-primary w-100">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="card p-4 shadow-sm">
+            <h2 class="mb-3">Login</h2>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" name="address_line1" class="form-control" placeholder="Address Line 1" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="postal_code" class="form-control" placeholder="Postal Code" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Login</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

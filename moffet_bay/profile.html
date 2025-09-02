@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+   footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+    <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title">Room Reservation</h5>
+                </div>
+                <div class="modal-body">
+    <h1 class="text-center">Profile</h1>
+    <div class="profile-info">
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+    </div>
+    <h2>Reservations</h2>
+    {% for reservation in user.reservation_set.all %}
+        <p>Room Type: {{ reservation.room_type }}</p>
+        <p>Check-in: {{ reservation.check_in }}</p>
+        <p>Check-out: {{ reservation.check_out }}</p>
+        <hr>
+    {% empty %}
+        <p>You have no past reservations.</p>
+    {% endfor %}
+
+    {% if user.reservation_set.all %}
+        <a href="{% url 'reservation' %}" class="btn btn-primary">Make a Reservation</a>
+    {% endif %}
+</div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+
+

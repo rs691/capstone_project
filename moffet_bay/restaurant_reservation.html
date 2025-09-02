@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Restaurant Reservation{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center">Reserve a Table</h1>
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            {{ form.email }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Phone</label>
+            {{ form.phone }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Date</label>
+            {{ form.date }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Time</label>
+            {{ form.time }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Number of Guests</label>
+            {{ form.guests }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Special Requests</label>
+            {{ form.special_requests }}
+        </div>
+        <button type="submit" class="btn btn-primary">Reserve</button>
+    </form>
+</div>
+{% endblock %}
