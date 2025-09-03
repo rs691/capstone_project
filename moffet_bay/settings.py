@@ -25,14 +25,22 @@ SECRET_KEY = 'django-insecure-wp0r53+v!hcw^ab^j!wtj0%tz)wdx&&4abr9y$i1!n5bbjqr(@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rs691.pythonanywhere.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['rs691.pythonanywhere.com']
 
+
+
+CORS_ALLOWED_ORIGINS = [
+        "https://your-frontend-domain.com",
+        "http://localhost:8000", # for local development
+        "https://rs691.pythonanywhere.com",
+    ]
 
 # Application definition
 
 INSTALLED_APPS = [
     'capstone_project',
-    "django_htmx",
+    'django_htmx',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'corsheaders.middleware.CorsMiddleware',
      "django_htmx.middleware.HtmxMiddleware",  # Dont Forget to add this line
 ]
 
