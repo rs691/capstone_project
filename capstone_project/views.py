@@ -22,49 +22,49 @@ from .models import (Attractions, CustomUser, Reservation,
 def attractions(request):
     attractions = [
         {
-            "title": "Diving",
-            "description": "Dive into the underwater world and explore vibrant marine life with our certified diving instructors.",
-            "price": "$120 per person",
-            "duration": "4 hours",
-            "image_url": "https://images.unsplash.com/photo-1561983779-7d7e065befa4?q=80&w=1589&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            'title': 'Attraction 1',
+            'description': 'Description for attraction 1.',
+            'price': '$20',
+            'duration': '2 hours',
+            'image_url': 'images/.jpg'
         },
         {
-            "title": "Hiking",
-            "description": "Discover scenic trails and enjoy the great outdoors with our guided hiking tours.",
-            "price": "$30 per person",
-            "duration": "4 hours",
-            "image_url": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
+            'title': 'Attraction 2',
+            'description': 'Description for attraction 2.',
+            'price': '$30',
+            'duration': '3 hours',
+            'image_url': 'images/image2.jpg'
         },
         {
-            "title": "Boating",
-            "description": "Relax on the water with our boating excursions, perfect for families and groups.",
-            "price": "$60 per person",
-            "duration": "2 hours",
-            "image_url": "https://images.unsplash.com/photo-1559075471-b8a6c70b56c2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJvYXRpbmd8ZW58MHx8MHx8fDI%3D",
+            'title': 'Attraction 3',
+            'description': 'Description for attraction 3.',
+            'price': '$15',
+            'duration': '1 hour',
+            'image_url': 'images/image3.jpg'
         },
         {
-            "title": "Paddle Boarding",
-            "description": "Explore peaceful waters and improve your balance with our paddle boarding adventures.",
-            "price": "$45 per person",
-            "duration": "2 hours",
-            "image_url": "https://images.unsplash.com/photo-1472745942893-4b9f730c7668",
+            'title': 'Attraction 4',
+            'description': 'Description for attraction 4.',
+            'price': '$25',
+            'duration': '4 hours',
+            'image_url': 'images/image4.jpg'
         },
         {
-            "title": "Whale Watching",
-            "description": "Experience the majesty of marine life up close with our guided whale watching tours.",
-            "price": "$99 per person",
-            "duration": "3 hours",
-            "image_url": "https://images.unsplash.com/photo-1568430462989-44163eb1752f",
+            'title': 'Attraction 5',
+            'description': 'Description for attraction 5.',
+            'price': '$40',
+            'duration': '5 hours',
+            'image_url': 'images/image5.jpg'
         },
         {
-            "title": "Spa Day",
-            "description": "Unwind with a relaxing massage, facial, and access to the resort’s wellness facilities.",
-            "price": "$150 per person",
-            "duration": "3 hours",
-            "image_url": "https://images.unsplash.com/photo-1630893174210-eea582de3c74?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        },
+            'title': 'Attraction 6',
+            'description': 'Description for attraction 6.',
+            'price': '$22',
+            'duration': '2.5 hours',
+            'image_url': 'images/image6.jpg'
+        }
     ]
-    return render(request, "attractions.html", {"attractions": attractions})
+    return render(request, 'attractions.html', {'attractions': attractions})
 
 
 def index(request):
@@ -334,5 +334,5 @@ def logout(request):
     logout_user(request)
     messages.success(request, "You have been logged out.")
     return redirect("sign_in")
-    return redirect("sign_in")
-    return redirect("sign_in")
+
+
