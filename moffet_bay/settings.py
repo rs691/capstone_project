@@ -98,7 +98,7 @@ DATABASES = {
         'USER': 'root',                       # MySQL username
         'PASSWORD': 'Hankbob2017!',             # MySQL password (leave blank if none)
         'HOST': '127.0.0.1',                  # Database server (localhost for local dev)
-        'PORT': '3309',                       # MySQL port (default is 3306)
+        'PORT': '3309',                       # MySQL port (default is 3309)
     }
 }
 
